@@ -24,7 +24,7 @@ RSpec.describe "The data" do
 
   it "has rows ordered by the correct column" do
     column_sym = column_that_rows_should_be_ordered_by.to_sym
-    data = CSV.table(path_to_data)
+    data = CSV.table(path_to_data, skip_blanks: true)
     current_order_of_the_data = data.map { |row| row[column_sym] }
     expect(current_order_of_the_data).to eq(current_order_of_the_data.sort)
   end
